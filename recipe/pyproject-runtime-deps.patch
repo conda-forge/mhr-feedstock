@@ -1,0 +1,12 @@
+diff --git a/pyproject.toml b/pyproject.toml
+index 2cd72f8..3eac8e2 100644
+--- a/pyproject.toml
++++ b/pyproject.toml
+@@ -1,6 +1,6 @@
+ [project]
+ authors = [{name = "MHR Contributors"}]
+-dependencies = ["torch", "trimesh>=4.8.3,<5", "pytest>=8.0"]
++dependencies = ["numpy", "torch", "trimesh>=4.8.3,<5"]
+ name = "mhr"
+ requires-python = ">= 3.11"
+ version = "1.0.0.post1"

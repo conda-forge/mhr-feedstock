@@ -1,0 +1,64 @@
+schema_version: 1
+
+context:
+  name: mhr
+  version: "1.0.0.post1"
+  python_min: "3.12"
+
+package:
+  name: ${{ name|lower }}
+  version: ${{ version }}
+
+source:
+  url: https://files.pythonhosted.org/packages/82/4c/711799eeb50769b26d3ef5b43357eb6f9529fb7ba64c5bdfd151a9faa2cf/${{ name }}-${{ version }}.tar.gz
+  sha256: 991a9bfe63c855377e60cae83e81d555fdc91c90a9711dc32eba942ef7e7e02e
+  patches:
+    - pyproject-runtime-deps.patch
+
+build:
+  noarch: python
+  number: 2
+  script: ${{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
+
+requirements:
+  host:
+    - hatchling
+    - pip
+    - python ${{ python_min }}.*
+  run:
+    - numpy
+    - pymomentum >=0.1.90
+    - python >=${{ python_min }}
+    - pytorch
+    - trimesh >=4.8.3,<5
+
+tests:
+  - python:
+      imports:
+        - mhr
+      pip_check: true
+      python_version: ${{ python_min }}.*
+  - script:
+      - python run_test.py
+    files:
+      recipe:
+        - run_test.py
+    requirements:
+      run:
+        - python ${{ python_min }}.*
+
+about:
+  homepage: https://github.com/facebookresearch/MHR
+  repository: https://github.com/facebookresearch/MHR
+  documentation: https://github.com/facebookresearch/MHR
+  summary: Momentum Human Rig is an anatomically-inspired parametric full-body digital human model developed at Meta.
+  description: |
+    Momentum Human Rig is an anatomically-inspired parametric full-body digital human model developed at Meta.
+    It includes: A parametric body skeletal model; A realistic 3D mesh skinned to the skeleton with levels of detail;
+    A body blendshape and pose corrective model; A facial blendshape model. Its design is friendly for both CG and CV communities.
+  license: Apache-2.0
+  license_file: LICENSE
+
+extra:
+  recipe-maintainers:
+    - jeongseok-meta

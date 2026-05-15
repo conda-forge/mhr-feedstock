@@ -17,16 +17,14 @@ Momentum Human Rig is an anatomically-inspired parametric full-body digital huma
 It includes: A parametric body skeletal model; A realistic 3D mesh skinned to the skeleton with levels of detail;
 A body blendshape and pose corrective model; A facial blendshape model. Its design is friendly for both CG and CV communities.
 
-
 Current build status
 ====================
 
 
-<table><tr><td>All platforms:</td>
+<table><tr>
+    <td>All platforms:</td>
     <td>
-      <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=26905&branchName=main">
-        <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/mhr-feedstock?branchName=main">
-      </a>
+      <img src="https://img.shields.io/badge/noarch-disabled-lightgrey.svg" alt="noarch disabled">
     </td>
   </tr>
 </table>

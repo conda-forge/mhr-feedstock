@@ -2,7 +2,7 @@ schema_version: 1
 
 context:
   name: mhr
-  version: "1.0.0.post1"
+  version: "1.0.1"
   python_min: "3.12"
 
 package:
@@ -10,14 +10,14 @@ package:
   version: ${{ version }}
 
 source:
-  url: https://files.pythonhosted.org/packages/82/4c/711799eeb50769b26d3ef5b43357eb6f9529fb7ba64c5bdfd151a9faa2cf/${{ name }}-${{ version }}.tar.gz
-  sha256: 991a9bfe63c855377e60cae83e81d555fdc91c90a9711dc32eba942ef7e7e02e
+  url: https://files.pythonhosted.org/packages/df/7f/96304df97d21a6b883bab7c3f6ad845c3891ad68516a2ee661066d3c6311/mhr-${{ version }}.tar.gz
+  sha256: 53eb3c2f58b3207ac55d979ca9e71f919b5a6b3c04a1704501a91549c451867e
   patches:
     - pyproject-runtime-deps.patch
 
 build:
   noarch: python
-  number: 2
+  number: 0
   script: ${{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
 
 requirements:

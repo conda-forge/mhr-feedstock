@@ -6,7 +6,7 @@ index f1c7d2a..313f37f 100644
  [project]
  authors = [{name = "MHR Contributors"}]
 -dependencies = ["torch", "trimesh>=4.8.3,<5"]
-+dependencies = ["numpy", "torch", "trimesh>=4.8.3,<5"]
++dependencies = ["numpy", "torch"]
  name = "mhr"
  requires-python = ">= 3.11"
  dynamic = ["version"]

@@ -17,7 +17,7 @@ source:
 
 build:
   noarch: python
-  number: 0
+  number: 1
   script: ${{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
 
 requirements:
@@ -28,17 +28,19 @@ requirements:
     - python ${{ python_min }}.*
   run:
     - numpy
-    - pymomentum >=0.1.90
+    - pymomentum >=0.1.90,<0.2
     - python >=${{ python_min }}
     - pytorch
-    - trimesh >=4.8.3,<5
 
 tests:
   - python:
       imports:
         - mhr
+        - mhr.mhr
       pip_check: true
-      python_version: ${{ python_min }}.*
+      python_version:
+        - ${{ python_min }}.*
+        - "*"
   - script:
       - python run_test.py
     files:
@@ -61,5 +63,6 @@ about:
   license_file: LICENSE
 
 extra:
+  feedstock-name: mhr
   recipe-maintainers:
     - jeongseok-meta

@@ -11,7 +11,7 @@ package:
 
 source:
   url: https://pypi.org/packages/source/m/mhr/mhr-${{ version }}.tar.gz
-  sha256: 0000000000000000000000000000000000000000000000000000000000000000  # placeholder: fill from PyPI after the release
+  sha256: e1060b72e5ae18f1d7746c3ddec3e48460fb67cf52556a88efaf5fb55a1a41ac
 
 build:
   noarch: python

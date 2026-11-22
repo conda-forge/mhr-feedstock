@@ -29,7 +29,7 @@ requirements:
     - python ${{ python_min }}.*
   run:
     - numpy
-    - pymomentum >=0.1.90,<0.2
+    - pymomentum >=0.1.89,<0.2
     - python >=${{ python_min }}
     - pytorch
 

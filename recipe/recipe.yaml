@@ -29,7 +29,10 @@ requirements:
     - python ${{ python_min }}.*
   run:
     - numpy
-    - pymomentum >=0.1.89,<0.2
+    # pymomentum-core: mhr.mhr needs only pymomentum.geometry and pymomentum.torch,
+    # and core works with any PyTorch build. 0.1.111 is its first conda-forge build;
+    # mhr checks for 0.1.89 or newer at import.
+    - pymomentum-core >=0.1.111,<0.2
     - python >=${{ python_min }}
     - pytorch
 

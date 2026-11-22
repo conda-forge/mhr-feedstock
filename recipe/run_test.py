@@ -35,3 +35,10 @@ assert torch.allclose(layer(values), expected)
 
 asset_folder = get_default_asset_folder()
 assert get_mhr_fbx_path(asset_folder, 2).endswith("assets/lod2.fbx")
+
+from mhr._pymomentum_version import installed_pymomentum_version
+
+print(
+    f"mhr.mhr imports with PyTorch {torch.__version__} and "
+    f"pymomentum-core {installed_pymomentum_version()}"
+)

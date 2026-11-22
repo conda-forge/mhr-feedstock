@@ -2,7 +2,7 @@ schema_version: 1
 
 context:
   name: mhr
-  version: "1.1.0"
+  version: "1.2.0"
   python_min: "3.12"
 
 package:
@@ -11,7 +11,7 @@ package:
 
 source:
   url: https://pypi.org/packages/source/m/mhr/mhr-${{ version }}.tar.gz
-  sha256: e1060b72e5ae18f1d7746c3ddec3e48460fb67cf52556a88efaf5fb55a1a41ac
+  sha256: b2003d05392e844ef4a33f79b0394e9f065d4fbd093f4090ff4da581c0e1b3ba
 
 build:
   noarch: python
@@ -29,7 +29,10 @@ requirements:
     - python ${{ python_min }}.*
   run:
     - numpy
-    - pymomentum >=0.1.89,<0.2
+    # pymomentum-core: mhr.mhr needs only pymomentum.geometry and pymomentum.torch,
+    # and core works with any PyTorch build. 0.1.111 is its first conda-forge build;
+    # mhr checks for 0.1.89 or newer at import.
+    - pymomentum-core >=0.1.111,<0.2
     - python >=${{ python_min }}
     - pytorch
 
@@ -45,6 +48,8 @@ tests:
   - script:
       - python run_test.py
       - mhr-download-assets --help
+      # mhr.MHR (from v1.2.0) runs with PyTorch alone: load it with PyMomentum blocked.
+      - python -c "import sys; sys.modules['pymomentum'] = None; from mhr import MHR; assert MHR.__module__ == 'mhr._model'"
     files:
       recipe:
         - run_test.py

@@ -2,7 +2,7 @@ schema_version: 1
 
 context:
   name: mhr
-  version: "1.2.1"
+  version: "1.2.2"
   python_min: "3.12"
 
 package:
@@ -11,7 +11,7 @@ package:
 
 source:
   url: https://pypi.org/packages/source/m/mhr/mhr-${{ version }}.tar.gz
-  sha256: 4eea76d87c4d7b1fcfabe977870c643d7e0703e803d7e0d175ef678bfa11d030
+  sha256: 66867300ee092e9469aa912ef5a35bb81f568bfb2219a5746ba8bc02af9ed8f4
 
 build:
   noarch: python
